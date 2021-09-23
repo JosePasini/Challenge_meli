@@ -16,7 +16,7 @@ public class Main {
 
         //String[] dna = {"ATGCGA","CAGTGC","TTATGT","AGAAGG","CCCCCA","TCACGG"};
 
-        String[] dna = {"AGCCCC","CTTACC","TTATGT","AGAAGG","CCCCTA","TCACTG"};
+        String[] dna = {"AGCCCC","CTTfCC","TTATGT","AGAAGG","CCCCTA","TCACTG"};
 
         String[] dna2 = {"ATGCGAa","CAGTGCa","TTATGTa","AGAAGGa","CCCCTAa","TCACTGa", "FDSASDc"};
 
@@ -64,19 +64,7 @@ public class Main {
         }
 
 
-        for (int i = 0; i < matriz.length; i++) {
-            for (int j = 0; j < matriz[0].length; j++) {
-                if (    matriz[i][j] != 65 && matriz[i][j] != 'a' &&
-                        matriz[i][j] != 'C' && matriz[i][j] != 'c' &&
-                        matriz[i][j] != 'G' && matriz[i][j] != 'g' &&
-                        matriz[i][j] != 'T' && matriz[i][j] != 't'){
-                    bandera =false;
-                    System.out.println("DIFERENTE: " + matriz[i][j] +
-                                        "\nI: " + i + " \n J: " +j);
-                    return bandera;
-                }
-            }
-        }
+
         return bandera;
     }
 
@@ -197,7 +185,18 @@ public class Main {
         for (int i = 0; i < matriz.length; i++) {
             a = dna[i];
             for (int j = 0; j < matriz[0].length; j++) {
-                matriz[i][j] = a.charAt(j);
+                char que_hay = a.charAt(j);
+                if(a.charAt(j) == 'A' || a.charAt(j) == 'C' || a.charAt(j) == 'G' ||a.charAt(j) == 'T'){
+                    matriz[i][j] = a.charAt(j);
+
+                } else {
+                    System.out.println(que_hay);
+                    System.out.println("DESIGUAAAAAL :" +a.charAt(j));
+
+                    bandera = false;
+                    return bandera;
+
+                }
             }
         }
 

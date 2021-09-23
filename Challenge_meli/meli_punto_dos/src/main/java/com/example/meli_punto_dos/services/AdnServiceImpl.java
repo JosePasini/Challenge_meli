@@ -67,11 +67,6 @@ public class AdnServiceImpl extends BaseServiceImpl<Adn, Long> implements AdnSer
         }
 
 
-        //     ACÁ VA EL MÉTODO PARA RESTRINGIR LAS LETRAS QUE NO VAN
-
-
-
-
         // Creando una matriz para recorrer los casilleros
         char matriz[][] = new char[dna.length][dna.length];
 
@@ -83,7 +78,15 @@ public class AdnServiceImpl extends BaseServiceImpl<Adn, Long> implements AdnSer
         for (int i = 0; i < matriz.length; i++) {
             a = dna[i];
             for (int j = 0; j < matriz[0].length; j++) {
-                matriz[i][j] = a.charAt(j);
+                //Verifico que no haya algun caracter o letra incorrecta
+                if(     a.charAt(j) == 'A' || a.charAt(j) == 'C' || a.charAt(j) == 'G' ||a.charAt(j) == 'T'
+                        || a.charAt(j) == 'a' || a.charAt(j) == 'c' || a.charAt(j) == 'g' ||a.charAt(j) == 't'
+                ) {
+                    matriz[i][j] = a.charAt(j);
+                } else {
+                    defectos++;
+                    return false;
+                }
             }
         }
 
