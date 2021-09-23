@@ -9,13 +9,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
+import java.util.List;
+
 public abstract class BaseControllerImpl<E, Servicio extends BaseServiceImpl<E, Long>> implements BaseController<E, Long> {
 
     @Autowired
     protected Servicio service;
-
-//    @Autowired
-//    protected BaseServiceImpl service;
 
     @GetMapping("")
     public ResponseEntity<?> getAll(){
@@ -35,7 +34,7 @@ public abstract class BaseControllerImpl<E, Servicio extends BaseServiceImpl<E, 
         }
     }
 
-    @PostMapping()
+    @PostMapping("/save")
     public ResponseEntity<?> save(@RequestBody E entity){
         try{
             return ResponseEntity.status(HttpStatus.OK).body(service.save(entity));
@@ -43,4 +42,9 @@ public abstract class BaseControllerImpl<E, Servicio extends BaseServiceImpl<E, 
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("{\"error\":\"Error. por favor ssss itente nuevamente.\"}");
         }
     }
+
+
+
+
+
 }

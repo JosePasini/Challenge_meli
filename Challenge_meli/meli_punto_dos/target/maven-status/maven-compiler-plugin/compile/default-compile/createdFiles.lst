@@ -1,0 +1,12 @@
+com\example\meli_punto_dos\MeliPuntoDosApplication.class
+com\example\meli_punto_dos\services\BaseService.class
+com\example\meli_punto_dos\repositories\AdnRepository.class
+com\example\meli_punto_dos\MatrizAnomalia.class
+com\example\meli_punto_dos\services\AdnService.class
+com\example\meli_punto_dos\controllers\BaseController.class
+com\example\meli_punto_dos\services\BaseServiceImpl.class
+com\example\meli_punto_dos\repositories\BaseRepository.class
+com\example\meli_punto_dos\controllers\AdnController.class
+com\example\meli_punto_dos\services\AdnServiceImpl.class
+com\example\meli_punto_dos\controllers\BaseControllerImpl.class
+com\example\meli_punto_dos\entities\Adn.class

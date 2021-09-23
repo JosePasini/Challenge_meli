@@ -3,6 +3,7 @@ package com.example.meli_punto_dos.services;
 import com.example.meli_punto_dos.entities.Adn;
 import com.example.meli_punto_dos.repositories.BaseRepository;
 import com.fasterxml.jackson.databind.JsonSerializable;
+import org.springframework.http.ResponseEntity;
 
 import javax.swing.*;
 import javax.transaction.Transactional;
@@ -51,4 +52,7 @@ public abstract class BaseServiceImpl<E, Long> implements BaseService<E, Long>{
             throw new Exception(e.getMessage());
         }
     }
+
+
+
 }
