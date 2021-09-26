@@ -18,13 +18,9 @@ public class BaseDatosAdnServiceImpl extends BaseServiceImpl<BaseDatosAdn, Long>
     @Autowired
     private BaseDatosAdnRepository baseDatosAdnRepository;
 
-
     public BaseDatosAdnServiceImpl(BaseRepository<BaseDatosAdn, Long> baseDatosAdnRepository){
         super(baseDatosAdnRepository);
     }
-
-
-
     @Transactional
     public BaseDatosAdn saveHumanAdn(Adn adn) throws Exception{
         try {
@@ -66,12 +62,6 @@ public class BaseDatosAdnServiceImpl extends BaseServiceImpl<BaseDatosAdn, Long>
         }
 
     }
-
-
-
-
-
-
     @Transactional
     public Integer cantidad_humanos() throws Exception{
         try{

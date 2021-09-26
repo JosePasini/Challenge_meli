@@ -16,23 +16,18 @@ import javax.persistence.criteria.CriteriaBuilder;
 @RequestMapping(path = "api/v1/baseDatosAdn")
 public class BaseDatosAdnController extends BaseControllerImpl<BaseDatosAdn, BaseDatosAdnServiceImpl> {
 
+    // ULTIMO MÉTODO HAY QUE MEJORARLO TODAVÍA.
+    // TIENE QUE RETORNAR JSON Y RETORNA STRING
     @GetMapping("/final")
     String ultimo() throws Exception {
-
         try{
             Integer humanos = this.service.cantidad_humanos();
             Integer mutantes = this.service.cantidad_mutantes();
-
             Double ratio = Double.parseDouble(String.valueOf(mutantes))/ Double.parseDouble(String.valueOf(humanos));
-
             return "Mutantes : " + mutantes + "\nHumanos: " + humanos + "\nRatio: " + ratio;
         } catch (Exception e){
             throw new Exception(e.getMessage());
         }
-
-
     }
-
-
 
 }

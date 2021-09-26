@@ -21,13 +21,8 @@ import java.util.List;
 @RequestMapping(path = "api/v1/")
 public class AdnController extends BaseControllerImpl<Adn, AdnServiceImpl> {
 
-
-
     @Autowired
     BaseDatosAdnServiceImpl baseDatosAdnService;
-
-
-
 
     // Traer la lista de ADN desde Service
     @PostMapping("/obtener-adn")

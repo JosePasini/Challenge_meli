@@ -22,7 +22,6 @@ public class AdnServiceImpl extends BaseServiceImpl<Adn, Long> implements AdnSer
         super(baseRepository);
     }
 
-
     // Lista auxiliar donde van las cadenas de adn
     private List<String> lista_adn_final;
 
@@ -45,7 +44,7 @@ public class AdnServiceImpl extends BaseServiceImpl<Adn, Long> implements AdnSer
     }
 
 
-    public boolean isMutant(List<String> dna_list){
+    public boolean isMutant(List<String> dna_list) throws Exception{
         boolean bandera = false;
         int contadorMutante = 0;
 
@@ -69,7 +68,6 @@ public class AdnServiceImpl extends BaseServiceImpl<Adn, Long> implements AdnSer
             return false;
         }
 
-
         // Creando una matriz para recorrer los casilleros
         char matriz[][] = new char[dna.length][dna.length];
 
@@ -92,8 +90,6 @@ public class AdnServiceImpl extends BaseServiceImpl<Adn, Long> implements AdnSer
                 }
             }
         }
-
-
 
         for (int i = 0; i < matriz.length; i++) {
             for (int j = 0; j < matriz[0].length; j++) {
@@ -145,27 +141,9 @@ public class AdnServiceImpl extends BaseServiceImpl<Adn, Long> implements AdnSer
                             }
                         }
                     }
-    //########################################################################################
-    //########################################################################################
-
-                    /*
-
-                    // Verifico Diagonal
-                    if (((i + 4) <= matriz.length) && ((j + 4) < matriz[0].length)){
-                        if (matriz[i][j] == matriz[(i+1)][j+1]) {
-                            bandera = verificarOblicua(matriz, i, j, matriz[i][j]);
-                            if (bandera) contadorMutante++;
-                        }
-                    }
-                    */
-
-                    //#########################################################################
-
-
                 } catch (Exception e){
-                    // Excepcion
+                    throw new Exception(e.getMessage());
                 }
-
                 // Acá estaría terminando
                 if (contadorMutante >= 2) {
                     bandera = true;
@@ -213,8 +191,6 @@ public class AdnServiceImpl extends BaseServiceImpl<Adn, Long> implements AdnSer
         if (this.defectos == 0) return true;
         return false;
     }
-
-
 
     // Método para ver si puedo guardar el ADN en la base de datos, todos prototipos
     // hasta que alguno funcione
