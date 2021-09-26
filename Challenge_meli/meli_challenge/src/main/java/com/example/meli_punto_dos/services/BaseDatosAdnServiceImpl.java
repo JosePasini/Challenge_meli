@@ -25,7 +25,8 @@ public class BaseDatosAdnServiceImpl extends BaseServiceImpl<BaseDatosAdn, Long>
     public BaseDatosAdn saveHumanAdn(Adn adn) throws Exception{
         try {
             // Si no existe ninguna base de datos, la instanciamos, solo una vez.
-            if (baseDatosAdnRepository.findById(1L).isEmpty()){
+            //if (baseDatosAdnRepository.findById(1L).isEmpty()){   ESTE ES EL ORIGINAL
+            if (baseDatosAdnRepository.findById(1L).isPresent()){
                 BaseDatosAdn baseDatosAdn = new BaseDatosAdn();
                 baseDatosAdn.getListaAdn_Humanos().add(adn);
                 this.baseDatosAdnRepository.save(baseDatosAdn);
@@ -45,7 +46,8 @@ public class BaseDatosAdnServiceImpl extends BaseServiceImpl<BaseDatosAdn, Long>
     @Transactional
     public BaseDatosAdn saveMutantAdn(Adn adn) throws Exception{
         try {
-            if (baseDatosAdnRepository.findById(1L).isEmpty()){
+            //if (baseDatosAdnRepository.findById(1L).isEmpty()){
+                if (baseDatosAdnRepository.findById(1L).isPresent()){
                 BaseDatosAdn baseDatosAdn = new BaseDatosAdn();
                 baseDatosAdn.getListaAdn_Mutantes().add(adn);
                 this.baseDatosAdnRepository.save(baseDatosAdn);
