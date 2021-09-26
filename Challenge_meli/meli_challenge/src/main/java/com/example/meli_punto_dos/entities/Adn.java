@@ -19,17 +19,14 @@ public class Adn implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-/*
-    @ElementCollection
-    @CollectionTable(name = "mi_adn")
-    @Column(name = "adn")
-    ArrayList<String> adn = new ArrayList<String>();
-*/
+    @Column(name ="adn_string")
+    private String adn_string;
 
+/*
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "fk_bd_adn")
     private BaseDatosAdn BD_Adn;
-
+*/
 
 
 

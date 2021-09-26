@@ -7,6 +7,8 @@ import com.example.meli_punto_dos.repositories.BaseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
+import java.util.Arrays;
 import java.util.List;
 
 @Service
@@ -89,6 +91,8 @@ public class AdnServiceImpl extends BaseServiceImpl<Adn, Long> implements AdnSer
                 }
             }
         }
+
+
 
         for (int i = 0; i < matriz.length; i++) {
             for (int j = 0; j < matriz[0].length; j++) {
@@ -207,6 +211,24 @@ public class AdnServiceImpl extends BaseServiceImpl<Adn, Long> implements AdnSer
     public boolean defectos(){
         if (this.defectos == 0) return true;
         return false;
+    }
+
+
+
+    // Método para ver si puedo guardar el ADN en la base de datos, todos prototipos
+    // hasta que alguno funcione
+    @Transactional
+    public Adn saveMutant(AdnCadena adnCadena) throws Exception{
+        try{
+            Adn entity = new Adn();
+            List<String> lista = adnCadena.getAdn_cadena();
+            String aux_adn = Arrays.deepToString(lista.toArray());
+            entity.setAdn_string(aux_adn);
+            Adn adn = this.adnRepository.save(entity);
+            return adn;
+        } catch (Exception e){
+            throw new Exception(e.getMessage());
+        }
     }
 
 }

@@ -4,6 +4,7 @@ import com.example.meli_punto_dos.entities.Adn;
 import com.example.meli_punto_dos.entities.AdnCadena;
 import com.example.meli_punto_dos.services.AdnServiceImpl;
 import org.apache.tomcat.util.buf.Asn1Parser;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +18,8 @@ import java.util.List;
 @CrossOrigin(origins = "*")
 @RequestMapping(path = "api/v1/")
 public class AdnController extends BaseControllerImpl<Adn, AdnServiceImpl> {
+
+
 
 
     // Traer la lista de ADN desde Service
@@ -33,6 +36,7 @@ public class AdnController extends BaseControllerImpl<Adn, AdnServiceImpl> {
         try{
 
             if (service.isMutant(lista_copia)){
+                this.service.saveMutant(lista_adn);
                 return new ResponseEntity<>("Increíblemente es un ~~  ADN  ~~  M U T A N T E  ~~",HttpStatus.OK);
             } else {
                 if (service.defectos()) {

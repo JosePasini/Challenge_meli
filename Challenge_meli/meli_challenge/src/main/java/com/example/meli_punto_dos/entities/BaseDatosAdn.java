@@ -18,9 +18,10 @@ public class BaseDatosAdn implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    /*
     @OneToMany(cascade = CascadeType.ALL)
     private List<Adn> listaAdn = new ArrayList<>();
-
+*/
 
 
 }

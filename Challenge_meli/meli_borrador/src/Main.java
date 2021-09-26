@@ -22,14 +22,34 @@ public class Main {
 
         String[] dna2 = {"ATGCGAa","CAGTGCa","TTATGTa","AGAAGGa","CCCCTAa","TCACTGa", "FDSASDc"};
 
+
+
+
+        System.out.println("####################################");
         System.out.println("####################################");
 
         List<String> lista = new ArrayList<>();
-        List<String> lista2 = new ArrayList<>();
+        String a = "AACCAA", b = "CAGTGC", c = "TTATGT", d = "AGAAGG", e = "CCCCTA", f = "TCACGG";
+        lista = Arrays.asList(a,b,c,d,e,f);
 
-        //String a = "AACCAA", b = "CAGTGC", c = "TTATGT", d = "AGAAGG", e = "CCCCTA", f = "TCACGG";
+        System.out.println(lista);
+
+        String str = Arrays.deepToString(lista.toArray());
+        System.out.println(str);
+/*
+
+        String va = "";
+        for (String s : lista) va += s + ", ";
+        System.out.println(va);
+*/
+
+        System.out.println("####################################");
+        System.out.println("####################################");
+
+
+
+        //List<String> lista2 = new ArrayList<>();
         //String a2 = "TTTTTT", b2 = "TTTTTT", c2 = "TTTTTT", d2 = "TTTTTT", e2 = "TTTTTT", f2 = "TTTTs";
-        //lista = Arrays.asList(a,b,c,d,e,f);
         //lista2 = Arrays.asList(a2,b2,c2,d2,e2,f2);
 
 
@@ -55,7 +75,7 @@ public class Main {
 
 
         //Acá voy a almacenar el String completo.
-        String a = "";
+        //String a = "";
 
         // Pasando las 5 posiciones del arreglo a Matriz.
         // ¿hay alguna solución mejor? seguro.
