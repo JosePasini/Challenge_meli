@@ -5,4 +5,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface BaseDatosAdnRepository extends BaseRepository<BaseDatosAdn, Long>{
+
+
 }

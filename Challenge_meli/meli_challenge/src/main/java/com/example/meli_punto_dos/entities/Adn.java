@@ -24,6 +24,15 @@ public class Adn implements Serializable {
 
 
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "base_datos_prueba")
+    private BaseDatosAdn baseDatosAdn;
+
+
+
+
+
+
 
 
 }

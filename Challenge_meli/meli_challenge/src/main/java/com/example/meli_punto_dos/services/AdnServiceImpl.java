@@ -2,6 +2,7 @@ package com.example.meli_punto_dos.services;
 
 import com.example.meli_punto_dos.entities.Adn;
 import com.example.meli_punto_dos.entities.AdnCadena;
+import com.example.meli_punto_dos.entities.BaseDatosAdn;
 import com.example.meli_punto_dos.repositories.AdnRepository;
 import com.example.meli_punto_dos.repositories.BaseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -224,6 +225,8 @@ public class AdnServiceImpl extends BaseServiceImpl<Adn, Long> implements AdnSer
             List<String> lista = adnCadena.getAdn_cadena();
             String aux_adn = Arrays.deepToString(lista.toArray());
             entity.setAdn_string(aux_adn);
+
+            //entity.setBaseDatosAdn();
             Adn adn = this.adnRepository.save(entity);
             return adn;
         } catch (Exception e){
