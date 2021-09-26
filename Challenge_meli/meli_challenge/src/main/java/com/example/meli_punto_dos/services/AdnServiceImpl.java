@@ -22,6 +22,7 @@ public class AdnServiceImpl extends BaseServiceImpl<Adn, Long> implements AdnSer
         super(baseRepository);
     }
 
+
     // Lista auxiliar donde van las cadenas de adn
     private List<String> lista_adn_final;
 
