@@ -93,7 +93,6 @@ public class AdnServiceImpl extends BaseServiceImpl<Adn, Long> implements AdnSer
         for (int i = 0; i < matriz.length; i++) {
             for (int j = 0; j < matriz[0].length; j++) {
                 try{
-
                     // verifico Columnas
                     if ((i + 4) <= matriz.length) {
                         if(matriz[i][j] == matriz[(i+1)][j]) {
@@ -101,7 +100,6 @@ public class AdnServiceImpl extends BaseServiceImpl<Adn, Long> implements AdnSer
                             if (bandera) contadorMutante++;
                         }
                     }
-
                     // verifico Filas
                     if (((j+4) <= matriz[0].length)){
                         if (matriz[i][j] == matriz[(i)][j+1]) {
@@ -112,6 +110,40 @@ public class AdnServiceImpl extends BaseServiceImpl<Adn, Long> implements AdnSer
                             }
                         }
                     }
+    //########################################################################################
+    //########################################################################################
+                    // Diagonal arriba
+                    if (i < j) {
+                        if (((i + 4) <= matriz.length) && ((j + 4) <= matriz[0].length)){
+                            if (matriz[i][j] == matriz[(i+1)][j+1]) {
+                                bandera = verificarOblicua(matriz, i, j, matriz[i][j]);
+                                if (bandera) contadorMutante++;
+                            }
+                        }
+                    }
+                    // Diagonal abajo
+                    if (i > j) {
+                        // Verifica diagonal
+                        if (((i + 4) <= matriz.length) && ((j + 4) <= matriz[0].length)){
+                            if (matriz[i][j] == matriz[(i+1)][j+1]) {
+                                bandera = verificarOblicua(matriz, i, j, matriz[i][j]);
+                                if (bandera) contadorMutante++;
+                            }
+                        }
+                    }
+                    // Diagonal principal
+                    if (i == j) {
+                        if (((i + 4) <= matriz.length) && ((j + 4) <= matriz[0].length)){
+                            if (matriz[i][j] == matriz[(i+1)][j+1]) {
+                                bandera = verificarOblicua(matriz, i, j, matriz[i][j]);
+                                if (bandera) contadorMutante++;
+                            }
+                        }
+                    }
+    //########################################################################################
+    //########################################################################################
+
+                    /*
 
                     // Verifico Diagonal
                     if (((i + 4) <= matriz.length) && ((j + 4) < matriz[0].length)){
@@ -120,6 +152,11 @@ public class AdnServiceImpl extends BaseServiceImpl<Adn, Long> implements AdnSer
                             if (bandera) contadorMutante++;
                         }
                     }
+                    */
+
+                    //#########################################################################
+
+
                 } catch (Exception e){
                     // Excepcion
                 }

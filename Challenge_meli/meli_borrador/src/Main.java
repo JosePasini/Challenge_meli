@@ -1,5 +1,7 @@
 
 import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
+import javafx.scene.shape.FillRule;
+import sun.font.FontRunIterator;
 
 import javax.swing.*;
 import java.util.ArrayList;
@@ -16,7 +18,7 @@ public class Main {
 
         //String[] dna = {"ATGCGA","CAGTGC","TTATGT","AGAAGG","CCCCCA","TCACGG"};
 
-        String[] dna = {"AGCCCC","CTTfCC","TTATGT","AGAAGG","CCCCTA","TCACTG"};
+        //String[] dna = {"AGCCCC","CTTfCC","TTATGT","AGAAGG","CCCCTA","TCACTG"};
 
         String[] dna2 = {"ATGCGAa","CAGTGCa","TTATGTa","AGAAGGa","CCCCTAa","TCACTGa", "FDSASDc"};
 
@@ -25,18 +27,116 @@ public class Main {
         List<String> lista = new ArrayList<>();
         List<String> lista2 = new ArrayList<>();
 
-        String a = "AACCAA", b = "CAGTGC", c = "TTATGT", d = "AGAAGG", e = "CCCCTA", f = "TCACGG";
-
-        String a2 = "TTTTTT", b2 = "TTTTTT", c2 = "TTTTTT", d2 = "TTTTTT", e2 = "TTTTTT", f2 = "TTTTs";
-
-        lista = Arrays.asList(a,b,c,d,e,f);
-        lista2 = Arrays.asList(a2,b2,c2,d2,e2,f2);
+        //String a = "AACCAA", b = "CAGTGC", c = "TTATGT", d = "AGAAGG", e = "CCCCTA", f = "TCACGG";
+        //String a2 = "TTTTTT", b2 = "TTTTTT", c2 = "TTTTTT", d2 = "TTTTTT", e2 = "TTTTTT", f2 = "TTTTs";
+        //lista = Arrays.asList(a,b,c,d,e,f);
+        //lista2 = Arrays.asList(a2,b2,c2,d2,e2,f2);
 
 
+
+
+
+
+        //############################################################################################################
+        //############################################################################################################
+        //############################################################################################################
+
+        //String[] dna = {"AAAAAA","AAAAAA","AAAAAA","AAAAAA","AAAAAA","AAAAAA"};
+
+        String[] dna = {"CAAAAA","GACCAA","ACAGGA","AAGATT","AAACCA","ATACAC"};
+
+        //String[] dna3 = {"AAAAAA","GCCCAA","ACGGGA","AAATTT","AAAAAA","AAAAAC"};
+
+        boolean bandera = false;
+        int contadorMutante = 0;
+
+
+        char matriz[][] = new char[dna.length][dna.length];
+
+
+        //Acá voy a almacenar el String completo.
+        String a = "";
+
+        // Pasando las 5 posiciones del arreglo a Matriz.
+        // ¿hay alguna solución mejor? seguro.
+        for (int i = 0; i < matriz.length; i++) {
+            a = dna[i];
+            for (int j = 0; j < matriz[0].length; j++) {
+                matriz[i][j] = a.charAt(j);
+            }
+        }
+
+
+        System.out.println("Matriz completa");
+        for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j < matriz[0].length; j++) {
+                System.out.print("["+matriz[i][j]+"]");
+            }
+            System.out.println();
+        }
+
+
+//############################################################################################################
+//#######################################         METODO METODO                ###############################
+//############################################################################################################
+
+        for (int i = 0; i < matriz.length; i++) {
+            for (int j = 0; j < matriz[0].length; j++) {
+
+                // Diagonal arriba
+                if (i < j) {
+                    if (((i + 4) <= matriz.length) && ((j + 4) <= matriz[0].length)){
+                        if (matriz[i][j] == matriz[(i+1)][j+1]) {
+                            bandera = verificarOblicua(matriz, i, j, matriz[i][j]);
+                            if (bandera) {
+                                contadorMutante++;
+                                System.out.println("[" + (i) + "," + (j) + "]");
+                            }
+                        }
+                    }
+                }
+                // Diagonal abajo
+                if (i > j) {
+                    // Verifica diagonal
+                    if (((i + 4) <= matriz.length) && ((j + 4) <= matriz[0].length)){
+                        if (matriz[i][j] == matriz[(i+1)][j+1]) {
+                            bandera = verificarOblicua(matriz, i, j, matriz[i][j]);
+                            if (bandera) {
+                                contadorMutante++;
+                                System.out.println("[" + (i) + "," + (j) + "]");
+                            }
+                        }
+                    }
+                }
+                // Diagonal principal
+                if (i == j) {
+                    if (((i + 4) <= matriz.length) && ((j + 4) <= matriz[0].length)){
+                        if (matriz[i][j] == matriz[(i+1)][j+1]) {
+                            bandera = verificarOblicua(matriz, i, j, matriz[i][j]);
+                            if (bandera) {
+                                contadorMutante++;
+                                System.out.println("[" + (i) + "," + (j) + "]");
+                            }
+                        }
+                    }
+                }
+
+
+            }
+        }
+
+
+
+        JOptionPane.showMessageDialog(null, "Contador mutante: " + contadorMutante);
+
+//############################################################################################################
+//############################################################################################################
+//############################################################################################################
+
+
+        /*
         System.out.println(isMutant(dna));
 
-
- /*
         String[] prueba = lista.toArray(lista.toArray(new String[0]));
 
         for (int i = 0; i < prueba.length; i++) {
@@ -50,8 +150,6 @@ public class Main {
 
 
     }
-
-
 
     public static boolean verificarLetraChar(char[][] matriz){
         boolean bandera = true;
