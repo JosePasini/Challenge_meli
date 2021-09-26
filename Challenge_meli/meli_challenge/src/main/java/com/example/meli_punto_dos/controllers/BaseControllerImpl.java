@@ -16,14 +16,6 @@ public abstract class BaseControllerImpl<E, Servicio extends BaseServiceImpl<E, 
     @Autowired
     protected Servicio service;
 
-    @GetMapping("")
-    public ResponseEntity<?> getAll(){
-        try {
-            return ResponseEntity.status(HttpStatus.OK).body(service.findAll());
-        } catch (Exception e){
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("{\"error\":\"Error. por favor itente nuevamente.\"}");
-        }
-    }
 
     @GetMapping("/{id}")
     public ResponseEntity<?> getOne(@PathVariable Long id){
