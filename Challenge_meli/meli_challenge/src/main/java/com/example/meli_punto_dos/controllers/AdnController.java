@@ -3,6 +3,7 @@ package com.example.meli_punto_dos.controllers;
 import com.example.meli_punto_dos.entities.Adn;
 import com.example.meli_punto_dos.entities.AdnCadena;
 import com.example.meli_punto_dos.services.AdnServiceImpl;
+import com.example.meli_punto_dos.services.BaseDatosAdnServiceImpl;
 import org.apache.tomcat.util.buf.Asn1Parser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.Query;
@@ -21,6 +22,8 @@ public class AdnController extends BaseControllerImpl<Adn, AdnServiceImpl> {
 
 
 
+    @Autowired
+    BaseDatosAdnServiceImpl baseDatosAdnService;
 
     // Traer la lista de ADN desde Service
     @PostMapping("/obtener-adn")
@@ -36,11 +39,15 @@ public class AdnController extends BaseControllerImpl<Adn, AdnServiceImpl> {
         try{
 
             if (service.isMutant(lista_copia)){
-                this.service.saveMutant(lista_adn);
+                Adn adn = this.service.saveMutant(lista_adn);
+                this.baseDatosAdnService.saveMutantAdn(adn);
                 return new ResponseEntity<>("Increíblemente es un ~~  ADN  ~~  M U T A N T E  ~~",HttpStatus.OK);
             } else {
                 if (service.defectos()) {
+                    Adn adn = this.service.saveMutant(lista_adn);
+                    this.baseDatosAdnService.saveHumanAdn(adn);
                     return new ResponseEntity<>("Lo siento, solo eres un simple humano",HttpStatus.FORBIDDEN);
+
                 } else {
                     return new ResponseEntity<>("Algo salió mal en el ingreso de datos",HttpStatus.FORBIDDEN);
                 }

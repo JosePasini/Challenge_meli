@@ -18,10 +18,10 @@ public class BaseDatosAdn implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    /*
     @OneToMany(cascade = CascadeType.ALL)
-    private List<Adn> listaAdn = new ArrayList<>();
-*/
+    private List<Adn> listaAdn_Humanos = new ArrayList<>();
 
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<Adn> listaAdn_Mutantes = new ArrayList<>();
 
 }

@@ -22,11 +22,7 @@ public class Adn implements Serializable {
     @Column(name ="adn_string")
     private String adn_string;
 
-/*
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "fk_bd_adn")
-    private BaseDatosAdn BD_Adn;
-*/
+
 
 
 

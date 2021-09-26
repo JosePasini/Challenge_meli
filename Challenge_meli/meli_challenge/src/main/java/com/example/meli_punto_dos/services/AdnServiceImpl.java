@@ -231,4 +231,18 @@ public class AdnServiceImpl extends BaseServiceImpl<Adn, Long> implements AdnSer
         }
     }
 
+    @Transactional
+    public Adn saveHuman(AdnCadena adnCadena) throws Exception{
+        try{
+            Adn entity = new Adn();
+            List<String> lista = adnCadena.getAdn_cadena();
+            String aux_adn = Arrays.deepToString(lista.toArray());
+            entity.setAdn_string(aux_adn);
+            Adn adn = this.adnRepository.save(entity);
+            return adn;
+        } catch (Exception e){
+            throw new Exception(e.getMessage());
+        }
+    }
+
 }
