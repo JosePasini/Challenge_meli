@@ -54,7 +54,7 @@ public class AdnController extends BaseControllerImpl<Adn, AdnServiceImpl> {
         }
     }
 
-    @GetMapping("mostrar-dna")
+    @GetMapping("/mostrar-dna")
     public ResponseEntity<?> mostrar_dna() {
         try {
             return ResponseEntity.status(HttpStatus.OK).body(service.mostrarListaAdn());
