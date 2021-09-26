@@ -16,7 +16,7 @@ public abstract class BaseControllerImpl<E, Servicio extends BaseServiceImpl<E, 
     @Autowired
     protected Servicio service;
 
-
+/*
     @GetMapping("/{id}")
     public ResponseEntity<?> getOne(@PathVariable Long id){
         try {
@@ -36,7 +36,7 @@ public abstract class BaseControllerImpl<E, Servicio extends BaseServiceImpl<E, 
     }
 
 
-
+*/
 
 
 }

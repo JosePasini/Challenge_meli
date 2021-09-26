@@ -16,6 +16,9 @@ import javax.persistence.criteria.CriteriaBuilder;
 @RequestMapping(path = "api/v1/baseDatosAdn")
 public class BaseDatosAdnController extends BaseControllerImpl<BaseDatosAdn, BaseDatosAdnServiceImpl> {
 
+
+    /*
+
     // ULTIMO MÉTODO HAY QUE MEJORARLO TODAVÍA.
     // TIENE QUE RETORNAR JSON Y RETORNA STRING
     @GetMapping("/final")
@@ -29,5 +32,8 @@ public class BaseDatosAdnController extends BaseControllerImpl<BaseDatosAdn, Bas
             throw new Exception(e.getMessage());
         }
     }
+
+
+     */
 
 }

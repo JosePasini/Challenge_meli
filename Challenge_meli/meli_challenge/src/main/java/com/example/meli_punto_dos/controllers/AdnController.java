@@ -24,6 +24,8 @@ public class AdnController extends BaseControllerImpl<Adn, AdnServiceImpl> {
     @Autowired
     BaseDatosAdnServiceImpl baseDatosAdnService;
 
+
+    /*
     // Traer la lista de ADN desde Service
     @PostMapping("/obtener-adn")
     public AdnCadena adn_cadena_service(@RequestBody AdnCadena lista_adn) {
@@ -63,6 +65,6 @@ public class AdnController extends BaseControllerImpl<Adn, AdnServiceImpl> {
         }
     }
 
-
+*/
 
 }
