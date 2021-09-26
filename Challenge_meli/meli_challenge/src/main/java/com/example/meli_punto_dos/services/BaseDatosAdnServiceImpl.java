@@ -25,26 +25,10 @@ public class BaseDatosAdnServiceImpl extends BaseServiceImpl<BaseDatosAdn, Long>
 
 
 
-    //##########################################################
-    @Transactional
-    public BaseDatosAdn saveHumanAdn_2(Adn adn, BaseDatosAdn bd) throws Exception{
-        try {
-            bd.getListaAdn_Humanos().add(adn);
-            this.baseDatosAdnRepository.save(bd);
-            return bd;
-        } catch (Exception e){
-            throw new Exception(e.getMessage());
-        }
-    }
-    //#########################################################
-
-
-
-
     @Transactional
     public BaseDatosAdn saveHumanAdn(Adn adn) throws Exception{
         try {
-
+            // Si no existe ninguna base de datos, la instanciamos, solo una vez.
             if (baseDatosAdnRepository.findById(1L).isEmpty()){
                 BaseDatosAdn baseDatosAdn = new BaseDatosAdn();
                 baseDatosAdn.getListaAdn_Humanos().add(adn);
@@ -82,6 +66,32 @@ public class BaseDatosAdnServiceImpl extends BaseServiceImpl<BaseDatosAdn, Long>
         }
 
     }
+
+
+
+
+
+
+    @Transactional
+    public Integer cantidad_humanos() throws Exception{
+        try{
+            return this.baseDatosAdnRepository.cantidad_humanos();
+        } catch (Exception e){
+            throw new Exception(e.getMessage());
+        }
+    }
+
+    @Transactional
+    public Integer cantidad_mutantes() throws Exception{
+        try{
+            return this.baseDatosAdnRepository.cantidad_mutantes();
+        } catch (Exception e){
+            throw new Exception(e.getMessage());
+        }
+    }
+
+
+
 
 
 }
