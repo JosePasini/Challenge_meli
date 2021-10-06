@@ -17,8 +17,8 @@ public class BaseDatosAdnController extends BaseControllerImpl<BaseDatosAdn, Bas
         try{
             Double humanos = Double.parseDouble(String.valueOf(this.service.cantidad_humanos()));
             Double mutantes = Double.parseDouble(String.valueOf(this.service.cantidad_mutantes()));
-            Double ratio_double = mutantes / humanos;
-            return ReturnResponse.generateResponse(mutantes,humanos, ratio_double, HttpStatus.OK);
+            Double ratio = mutantes / humanos;
+            return ReturnResponse.generateResponse(mutantes,humanos, ratio, HttpStatus.OK);
         } catch (Exception e){
             throw new Exception(e.getMessage());
         }
