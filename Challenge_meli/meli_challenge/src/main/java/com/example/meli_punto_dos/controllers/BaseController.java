@@ -11,8 +11,6 @@ import org.yaml.snakeyaml.events.Event;
 import java.util.List;
 
 public interface BaseController <E, Long>{
-
-    //public ResponseEntity<?> getOne(@PathVariable Long id);
-    //public ResponseEntity<?> save(@RequestBody E entity);
+    public ResponseEntity<?> save(@RequestBody E entity);
 
 }

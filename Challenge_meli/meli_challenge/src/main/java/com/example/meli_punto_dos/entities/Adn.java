@@ -14,15 +14,12 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 public class Adn implements Serializable {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name ="adn_string")
     private String adn_string;
-
-
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "base_datos_prueba")

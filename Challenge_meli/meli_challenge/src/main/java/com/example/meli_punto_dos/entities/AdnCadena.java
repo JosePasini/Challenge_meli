@@ -10,10 +10,7 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 public class AdnCadena implements Serializable {
-
     @JsonProperty("dna")
     private List<String> adn_cadena;
-
-
 
 }

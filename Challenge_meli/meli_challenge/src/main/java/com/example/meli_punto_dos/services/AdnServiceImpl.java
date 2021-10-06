@@ -21,8 +21,7 @@ public class AdnServiceImpl extends BaseServiceImpl<Adn, Long> implements AdnSer
     public AdnServiceImpl(BaseRepository<Adn, Long> baseRepository) {
         super(baseRepository);
     }
-
-
+    
     // Lista auxiliar donde van las cadenas de adn
     private List<String> lista_adn_final;
 
@@ -39,11 +38,6 @@ public class AdnServiceImpl extends BaseServiceImpl<Adn, Long> implements AdnSer
         lista_adn_final = lista_adn.getAdn_cadena();
         return lista_adn_final;
     }
-
-    public List<String> mostrarListaAdn(){
-        return lista_adn_final;
-    }
-
 
     public boolean isMutant(List<String> dna_list) throws Exception{
         boolean bandera = false;
@@ -180,21 +174,12 @@ public class AdnServiceImpl extends BaseServiceImpl<Adn, Long> implements AdnSer
         return true;
     }
 
-    public String verificarLista(){
-        if (!this.lista_adn_final.isEmpty()){
-            return "Lista NO VACIA";
-        } else {
-            return "Lista VACIA weeeey";
-        }
-    }
-
+    // Si defectos es mayor a 0 el programa no cuenta ni humanos ni mutantes
     public boolean defectos(){
         if (this.defectos == 0) return true;
         return false;
     }
 
-    // Método para ver si puedo guardar el ADN en la base de datos, todos prototipos
-    // hasta que alguno funcione
     @Transactional
     public Adn saveMutant(AdnCadena adnCadena) throws Exception{
         try{
@@ -202,8 +187,6 @@ public class AdnServiceImpl extends BaseServiceImpl<Adn, Long> implements AdnSer
             List<String> lista = adnCadena.getAdn_cadena();
             String aux_adn = Arrays.deepToString(lista.toArray());
             entity.setAdn_string(aux_adn);
-
-            //entity.setBaseDatosAdn();
             Adn adn = this.adnRepository.save(entity);
             return adn;
         } catch (Exception e){

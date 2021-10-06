@@ -24,15 +24,6 @@ public class AdnController extends BaseControllerImpl<Adn, AdnServiceImpl> {
     @Autowired
     BaseDatosAdnServiceImpl baseDatosAdnService;
 
-
-    /*
-    // Traer la lista de ADN desde Service
-    @PostMapping("/obtener-adn")
-    public AdnCadena adn_cadena_service(@RequestBody AdnCadena lista_adn) {
-        return service.mutant(lista_adn);
-    }
-
-
     // Llamada al método principal
     @PostMapping("/mutant")
     public ResponseEntity<?> adn_cadena_service_isMutant(@RequestBody AdnCadena lista_adn) {
@@ -44,7 +35,7 @@ public class AdnController extends BaseControllerImpl<Adn, AdnServiceImpl> {
                 return new ResponseEntity<>("Increíblemente es un ~~  ADN  ~~  M U T A N T E  ~~",HttpStatus.OK);
             } else {
                 if (service.defectos()) {
-                    Adn adn = this.service.saveMutant(lista_adn);
+                    Adn adn = this.service.saveHuman(lista_adn);
                     this.baseDatosAdnService.saveHumanAdn(adn);
                     return new ResponseEntity<>("  o<--<  Lo siento, solo eres un simple humano  >-->o  ",HttpStatus.FORBIDDEN);
                 } else {
@@ -56,15 +47,5 @@ public class AdnController extends BaseControllerImpl<Adn, AdnServiceImpl> {
         }
     }
 
-    @GetMapping("/mostrar-dna")
-    public ResponseEntity<?> mostrar_dna() {
-        try {
-            return ResponseEntity.status(HttpStatus.OK).body(service.mostrarListaAdn());
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("{\"error\":\"Error. por favor ssss itente nuevamente.\"}");
-        }
-    }
-
-*/
 
 }
